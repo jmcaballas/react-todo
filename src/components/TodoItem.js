@@ -1,16 +1,10 @@
-const TodoItem = ({
-  item,
-  index,
-  deleteTodoItem,
-  doneTodoItem,
-  editTodoItem,
-}) => {
+const TodoItem = ({ item, id, deleteTodoItem, doneTodoItem, editTodoItem }) => {
   return (
     <div className="container card text-bg-light d-flex flex-row align-items-center justify-content-between">
       <li className="d-flex gap-3 align-items-center">
         <input
           type="checkbox"
-          onChange={() => doneTodoItem(index)}
+          onChange={() => doneTodoItem(id)}
           className="form-check-input"
         />
         <h3 style={{ textDecoration: item.complete ? "line-through" : "" }}>
@@ -19,13 +13,13 @@ const TodoItem = ({
       </li>
       <div className="d-flex gap-3">
         <button
-          onClick={() => editTodoItem(index)}
+          onClick={() => editTodoItem(id)}
           className="btn btn-warning shadow-none"
         >
           Edit
         </button>
         <button
-          onClick={() => deleteTodoItem(index)}
+          onClick={() => deleteTodoItem(id)}
           className="btn btn-danger shadow-none"
         >
           Delete

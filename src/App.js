@@ -9,14 +9,17 @@ function App() {
     {
       todo: "Task 1",
       done: false,
+      id: Math.floor(Math.random() * 10000),
     },
     {
       todo: "Task 2",
       done: false,
+      id: Math.floor(Math.random() * 10000),
     },
     {
       todo: "Task 3",
       done: false,
+      id: Math.floor(Math.random() * 10000),
     },
   ]);
 
@@ -25,24 +28,24 @@ function App() {
     setTodoItems(newTodoItems);
   };
 
-  const deleteTodoItem = (index) => {
+  const deleteTodoItem = (id) => {
     const newTodoItems = [...todoItems];
-    newTodoItems.splice(index, 1);
+    newTodoItems.splice(id, 1);
     setTodoItems(newTodoItems);
   };
 
-  const doneTodoItem = (index) => {
+  const doneTodoItem = (id) => {
     const newTodoItems = [...todoItems];
-    newTodoItems[index].complete = !newTodoItems[index].complete;
+    newTodoItems[id].complete = !newTodoItems[id].complete;
     setTodoItems(newTodoItems);
   };
 
-  const editTodoItem = (index) => {
+  const editTodoItem = (id) => {
     const newTodoItems = [...todoItems];
-    const item = newTodoItems[index];
+    const item = newTodoItems[id];
     let newItem = prompt(`Update ${item.todo}?`, item.todo);
     let todoObj = { todo: newItem, complete: item.complete };
-    newTodoItems.splice(index, 1, todoObj);
+    newTodoItems.splice(id, 1, todoObj);
     if (newItem === null || newItem === "") {
       return;
     } else {
@@ -55,10 +58,10 @@ function App() {
     <div className="container mt-5 gap-3 d-flex flex-column align-items-center justify-content-center">
       <h1>What shall I do today?</h1>
       <TodoInput createTodoItem={createTodoItem} />
-      {todoItems.map((item, index) => (
+      {todoItems.map((item, id) => (
         <TodoItem
-          key={index}
-          index={index}
+          key={id}
+          id={id}
           item={item}
           deleteTodoItem={deleteTodoItem}
           doneTodoItem={doneTodoItem}
