@@ -1,7 +1,7 @@
-const TodoItem = () => {
+const TodoItem = ({ item, index }) => {
   return (
     <div>
-      <h1>TodoItem</h1>
+      <li>{item.todo}</li>
     </div>
   );
 };
