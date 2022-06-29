@@ -52,7 +52,8 @@ function App() {
   };
 
   return (
-    <div className="">
+    <div className="container mt-5 gap-3 d-flex flex-column align-items-center justify-content-center">
+      <h1>What shall I do today?</h1>
       <TodoInput createTodoItem={createTodoItem} />
       {todoItems.map((item, index) => (
         <TodoItem
