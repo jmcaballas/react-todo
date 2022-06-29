@@ -1,27 +1,17 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import "./App.css";
 import TodoInput from "./components/TodoInput";
 import TodoItem from "./components/TodoItem";
 
 function App() {
-  const [todoItems, setTodoItems] = useState([
-    {
-      todo: "Task 1",
-      done: false,
-      id: Math.floor(Math.random() * 10000),
-    },
-    {
-      todo: "Task 2",
-      done: false,
-      id: Math.floor(Math.random() * 10000),
-    },
-    {
-      todo: "Task 3",
-      done: false,
-      id: Math.floor(Math.random() * 10000),
-    },
-  ]);
+  const [todoItems, setTodoItems] = useState(
+    JSON.parse(localStorage.getItem("todoItems")) || []
+  );
+
+  useEffect(() => {
+    localStorage.setItem("todoItems", JSON.stringify(todoItems));
+  }, [todoItems]);
 
   const createTodoItem = (todo) => {
     const newTodoItems = [
