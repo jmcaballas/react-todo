@@ -25,11 +25,22 @@ function App() {
     setTodoItems(newTodoItems);
   };
 
+  const deleteTodoItem = (index) => {
+    const newTodoItems = [...todoItems];
+    newTodoItems.splice(index, 1);
+    setTodoItems(newTodoItems);
+  };
+
   return (
     <div className="">
       <TodoInput createTodoItem={createTodoItem} />
       {todoItems.map((item, index) => (
-        <TodoItem key={index} index={index} item={item} />
+        <TodoItem
+          key={index}
+          index={index}
+          item={item}
+          deleteTodoItem={deleteTodoItem}
+        />
       ))}
     </div>
   );
