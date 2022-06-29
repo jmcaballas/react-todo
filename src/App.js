@@ -24,19 +24,24 @@ function App() {
   ]);
 
   const createTodoItem = (todo) => {
-    const newTodoItems = [...todoItems, { todo, done: false }];
+    const newTodoItems = [
+      ...todoItems,
+      { todo, done: false, id: Math.floor(Math.random() * 10000) },
+    ];
     setTodoItems(newTodoItems);
   };
 
   const deleteTodoItem = (id) => {
     const newTodoItems = [...todoItems];
+    const nextItem = newTodoItems[id + 1];
     newTodoItems.splice(id, 1);
+    console.log(nextItem.done);
     setTodoItems(newTodoItems);
   };
 
   const doneTodoItem = (id) => {
     const newTodoItems = [...todoItems];
-    newTodoItems[id].complete = !newTodoItems[id].complete;
+    newTodoItems[id].done = !newTodoItems[id].done;
     setTodoItems(newTodoItems);
   };
 
@@ -44,7 +49,7 @@ function App() {
     const newTodoItems = [...todoItems];
     const item = newTodoItems[id];
     let newItem = prompt(`Update ${item.todo}?`, item.todo);
-    let todoObj = { todo: newItem, complete: item.complete };
+    let todoObj = { todo: newItem, done: item.done };
     newTodoItems.splice(id, 1, todoObj);
     if (newItem === null || newItem === "") {
       return;

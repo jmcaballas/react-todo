@@ -7,7 +7,7 @@ const TodoItem = ({ item, id, deleteTodoItem, doneTodoItem, editTodoItem }) => {
           onChange={() => doneTodoItem(id)}
           className="form-check-input"
         />
-        <h3 style={{ textDecoration: item.complete ? "line-through" : "" }}>
+        <h3 style={{ textDecoration: item.done ? "line-through" : "" }}>
           {item.todo}
         </h3>
       </li>
