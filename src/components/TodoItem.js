@@ -1,4 +1,10 @@
-const TodoItem = ({ item, index, deleteTodoItem, doneTodoItem }) => {
+const TodoItem = ({
+  item,
+  index,
+  deleteTodoItem,
+  doneTodoItem,
+  editTodoItem,
+}) => {
   return (
     <div>
       <li>
@@ -8,6 +14,7 @@ const TodoItem = ({ item, index, deleteTodoItem, doneTodoItem }) => {
         </h3>
       </li>
       <div>
+        <button onClick={() => editTodoItem(index)}>Edit</button>
         <button onClick={() => deleteTodoItem(index)}>Delete</button>
       </div>
     </div>
