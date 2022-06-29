@@ -33,9 +33,7 @@ function App() {
 
   const deleteTodoItem = (id) => {
     const newTodoItems = [...todoItems];
-    const nextItem = newTodoItems[id + 1];
     newTodoItems.splice(id, 1);
-    console.log(nextItem.done);
     setTodoItems(newTodoItems);
   };
 

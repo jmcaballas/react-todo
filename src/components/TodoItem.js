@@ -6,6 +6,7 @@ const TodoItem = ({ item, id, deleteTodoItem, doneTodoItem, editTodoItem }) => {
           type="checkbox"
           onChange={() => doneTodoItem(id)}
           className="form-check-input"
+          checked={item.done}
         />
         <h3 style={{ textDecoration: item.done ? "line-through" : "" }}>
           {item.todo}
