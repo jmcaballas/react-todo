@@ -13,14 +13,17 @@ const TodoInput = ({ createTodoItem }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className="d-flex gap-2">
       <input
         type="text"
         placeholder="Add something to do"
         value={value}
         onChange={(e) => setValue(e.target.value)}
+        className="form-control form-control-lg"
       />
-      <button onClick={handleSubmit}>Add</button>
+      <button onClick={handleSubmit} className="btn btn-warning">
+        Add
+      </button>
     </form>
   );
 };
