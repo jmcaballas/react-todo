@@ -8,26 +8,32 @@ function App() {
   const [todoItems, setTodoItems] = useState([
     {
       todo: "Task 1",
-      complete: false,
+      done: false,
     },
     {
       todo: "Task 2",
-      complete: false,
+      done: false,
     },
     {
       todo: "Task 3",
-      complete: false,
+      done: false,
     },
   ]);
 
   const createTodoItem = (todo) => {
-    const newTodoItems = [...todoItems, { todo, complete: false }];
+    const newTodoItems = [...todoItems, { todo, done: false }];
     setTodoItems(newTodoItems);
   };
 
   const deleteTodoItem = (index) => {
     const newTodoItems = [...todoItems];
     newTodoItems.splice(index, 1);
+    setTodoItems(newTodoItems);
+  };
+
+  const doneTodoItem = (index) => {
+    const newTodoItems = [...todoItems];
+    newTodoItems[index].complete = !newTodoItems[index].complete;
     setTodoItems(newTodoItems);
   };
 
@@ -40,6 +46,7 @@ function App() {
           index={index}
           item={item}
           deleteTodoItem={deleteTodoItem}
+          doneTodoItem={doneTodoItem}
         />
       ))}
     </div>
