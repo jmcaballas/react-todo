@@ -13,7 +13,7 @@ const TodoInput = ({ createTodoItem }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="d-flex gap-2">
+    <form onSubmit={handleSubmit} className="d-flex gap-2 mb-3">
       <input
         type="text"
         placeholder="Add something to do"
