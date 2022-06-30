@@ -22,9 +22,11 @@ function App() {
   };
 
   const deleteTodoItem = (id) => {
-    const newTodoItems = [...todoItems];
-    newTodoItems.splice(id, 1);
-    setTodoItems(newTodoItems);
+    if (window.confirm("Confirm deletion?") === true) {
+      const newTodoItems = [...todoItems];
+      newTodoItems.splice(id, 1);
+      setTodoItems(newTodoItems);
+    }
   };
 
   const doneTodoItem = (id) => {
