@@ -8,7 +8,10 @@ const TodoItem = ({ item, id, deleteTodoItem, doneTodoItem, editTodoItem }) => {
           className="form-check-input"
           checked={item.done}
         />
-        <h3 style={{ textDecoration: item.done ? "line-through" : "" }}>
+        <h3
+          style={{ textDecoration: item.done ? "line-through" : "" }}
+          className="todo-item"
+        >
           {item.todo}
         </h3>
       </li>

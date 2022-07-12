@@ -1,3 +1,11 @@
 .card {
-  height: 75px;
+  min-height: 75px;
+}
+
+.form-check-input {
+  min-width: 16px;
+}
+
+.todo-item {
+  margin: 10px 10px;
 }
